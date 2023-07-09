@@ -1,0 +1,40 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="container">
+
+    <div style="float:right">
+        <p style="color: white"> Total: {{importe_total_carro}} $ </p>
+    </div>
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-md-3">
+            <div class="card mb-3" style="width:100%">
+                <img class="card-img-top" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                <div class="card-body text-center">
+                    <h6 class="card-title">{{ producto.nombre }}</h6>
+                    <p class="card-text">{{ producto.precio }}&nbsp;$</p>
+                </div>     
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-success"> Agregar </a>
+
+                </div>   
+            </div>
+        </div>    
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
